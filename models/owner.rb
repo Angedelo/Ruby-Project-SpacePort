@@ -2,7 +2,7 @@ require_relative( '../db/sql_runner' )
 
 class Owner
 
-  attr_reader( :name, :wanted_level, :id )
+  attr_accessor( :name, :wanted_level, :id )
 
   def initialize( options )
     @id = options['id'].to_i if options['id']
@@ -34,13 +34,18 @@ class Owner
     return results.map {|ship| Ship.new(ship)}
   end
 
-  # def owner
-  #   sql = "SELECT owners.* FROM owners
-  #   WHERE id = $1"
-  #   values = [@id]
-  #   results = SqlRunner.run(sql, values)
-  #   return results.map {|owner| Owner.new(owner)}
-  # end
+  def update
+    sql = "UPDATE owners
+    SET
+    (
+      name, wanted_level
+    ) =
+    ($1, $2
+    )
+    WHERE id = $3"
+    values = [@name, @wanted_level, @id]
+    SqlRunner.run(sql, values)
+  end
 
   def self.all()
     sql = "SELECT * FROM owners"

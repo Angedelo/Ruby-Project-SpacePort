@@ -2,7 +2,7 @@ require_relative( '../db/sql_runner' )
 
 class Ship
 
-  attr_reader( :name, :type, :size, :owner_id, :id )
+  attr_accessor( :name, :type, :size, :owner_id, :id )
 
   def initialize( options )
     @id = options['id'].to_i if options['id']
@@ -28,6 +28,19 @@ class Ship
     values = [@name, @type, @size, @owner_id]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
+  end
+
+  def update
+    sql = "UPDATE ships
+    SET
+    (
+      name, type, size, owner_id
+    ) =
+    ($1, $2, $3, $4
+    )
+    WHERE id = $5"
+    values = [@name, @type, @size, @owner_id, @id]
+    SqlRunner.run(sql, values)
   end
 
   def owner
