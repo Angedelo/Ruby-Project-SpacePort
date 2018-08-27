@@ -2,13 +2,14 @@ require_relative( '../db/sql_runner' )
 
 class Ship
 
-  attr_reader( :name, :type, :size, :id )
+  attr_reader( :name, :type, :size, :owner_id, :id )
 
   def initialize( options )
     @id = options['id'].to_i if options['id']
     @name = options['name']
     @size = options['size'].to_i
     @type = options['type']
+    @owner_id = options['owner_id'].to_i
   end
 
   def save()
@@ -16,14 +17,15 @@ class Ship
     (
       name,
       type,
-      size
+      size,
+      owner_id
     )
     VALUES
     (
-      $1, $2, $3
+      $1, $2, $3, $4
     )
     RETURNING id"
-    values = [@name, @type, @size]
+    values = [@name, @type, @size, @owner_id]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
