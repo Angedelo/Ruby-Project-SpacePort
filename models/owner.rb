@@ -26,6 +26,22 @@ class Owner
     @id = results.first()['id'].to_i
   end
 
+  def ship
+    sql = "SELECT ships.* FROM ships
+    WHERE owner_id = $1"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map {|ship| Ship.new(ship)}
+  end
+
+  # def owner
+  #   sql = "SELECT owners.* FROM owners
+  #   WHERE id = $1"
+  #   values = [@id]
+  #   results = SqlRunner.run(sql, values)
+  #   return results.map {|owner| Owner.new(owner)}
+  # end
+
   def self.all()
     sql = "SELECT * FROM owners"
     results = SqlRunner.run( sql )
