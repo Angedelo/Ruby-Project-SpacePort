@@ -1,0 +1,15 @@
+<h1><%= @ship.name %></h1>
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Size</th>
+    <th>Owner</th>
+  </tr>
+  <tr>
+    <td><%= @ship.type %></td>
+    <td><%= @ship.size %></td>
+    <td><%= @ship.owner.first.name %></td>
+  </tr>
+
+</table>
