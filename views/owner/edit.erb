@@ -1,0 +1,17 @@
+<h1>Edit an owner</h1>
+
+<form action="/owner/<%= @owner.id %>" method="post">
+
+  <label for="name">Name:</label>
+  <input type="text" name="name" id="name" value="<%= @owner.name %>" required/>
+<br><br>
+
+  <label for="wanted_level">Type:</label>
+  <select id="wanted_level" name="wanted_level" required>
+    <option value="High">High</option>
+    <option value="Medium">Medium</option>
+    <option value="Low">Low</option>
+  </select>
+<br><br>
+
+<input type="submit" value="Edit Owner">

@@ -1,0 +1,19 @@
+<h1><%= @owner.name %></h1>
+
+<table>
+  <tr>
+    <th>Wanted Level</th>
+  </tr>
+  <tr>
+    <td><%= @owner.wanted_level %></td>
+  </tr>
+
+  <form method="get" action="/owner/<%= @owner.id %>/edit">
+      <input type="submit" value="Edit owner" />
+  </form>
+
+  <form method="post" action="/owner/<%= @owner.id %>/delete">
+      <input type="submit" value="Delete Owner" />
+  </form>
+
+</table>

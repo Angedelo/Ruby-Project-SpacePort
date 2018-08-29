@@ -1,0 +1,19 @@
+<h1>Owners</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Wanted Level</th>
+  </tr>
+  <% for owner in @owners %>
+  <tr>
+    <td><a href="/owner/<%= owner.id %>"><%= owner.name %></a></td>
+    <td><%= owner.wanted_level %></td>
+  </tr>
+  <% end %>
+
+  <form action="/owner/new">
+      <input type="submit" value="Add an Owner" />
+  </form>
+
+</table>

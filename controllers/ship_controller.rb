@@ -16,7 +16,7 @@ get '/ship/new' do
 end
 
 get '/ship/:id' do
-  @ship = Ship.find(params['id'].to_i)
+  @ship = Ship.find(params[:id].to_i)
   erb(:"ship/show")
 end
 
