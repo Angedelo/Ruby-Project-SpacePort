@@ -60,6 +60,12 @@ class Ship
     SqlRunner.run(sql, values)
   end
 
+  def self.capacity()
+    sql = "SELECT size FROM ships"
+    results = SqlRunner.run( sql )
+    return results.count
+  end
+
   def self.all()
     sql = "SELECT * FROM ships"
     results = SqlRunner.run( sql )

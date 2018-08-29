@@ -6,13 +6,17 @@ require_relative( '../models/owner.rb' )
 also_reload( '../models/*' )
 
 get '/ship' do
+  # binding.pry
   @ships = Ship.all
-  # call a method on ship model to add some kind of
-  # message or something if capacity is near full
+  @capacity = Ship.capacity
   erb (:"ship/index")
 end
 
 get '/ship/new' do
+  @capacity = Ship.capacity
+    if @capacity == 10
+      redirect to '/ship'
+    end
   @owners = Owner.all
   erb(:"ship/new")
 end

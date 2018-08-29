@@ -16,6 +16,14 @@
   </tr>
   <% end %>
 
+  <% if @capacity == 10 %>
+    <p><%= "Sorry we are full" %></p>
+    <% elsif @capacity < 10 && @capacity > 5 %>
+    <p><%= "We are nearing capacity" %></p>
+    <% else %>
+    <p><%= "Plenty of spaces available" %></p>
+  <% end %>
+
   <form action="/ship/new">
       <input type="submit" value="Add a Ship" />
   </form>
