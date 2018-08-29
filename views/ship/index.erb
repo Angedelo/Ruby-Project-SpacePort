@@ -5,12 +5,14 @@
     <th>Name</th>
     <th>Type</th>
     <th>Size</th>
+    <th>Owner</th>
   </tr>
   <% for ship in @ships %>
   <tr>
     <td><a href="/ship/<%= ship.id %>"><%= ship.name %></a></td>
     <td><%= ship.type %></td>
     <td><%= ship.size %></td>
+    <td><%= ship.owner[0].name %></td>
   </tr>
   <% end %>
 

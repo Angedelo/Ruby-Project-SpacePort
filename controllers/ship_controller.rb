@@ -7,6 +7,8 @@ also_reload( '../models/*' )
 
 get '/ship' do
   @ships = Ship.all
+  # call a method on ship model to add some kind of
+  # message or something if capacity is near full
   erb (:"ship/index")
 end
 
