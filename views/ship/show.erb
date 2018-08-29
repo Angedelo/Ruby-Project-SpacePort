@@ -9,7 +9,15 @@
   <tr>
     <td><%= @ship.type %></td>
     <td><%= @ship.size %></td>
-    <td><%= @ship.owner.first.name %></td>
+    <td><%= @ship.owner[0].name %></td>
   </tr>
+
+  <form method="get" action="/ship/<%= @ship.id %>/edit">
+      <input type="submit" value="Edit Ship" />
+  </form>
+
+  <form method="post" action="/ship/<%= @ship.id %>/delete">
+      <input type="submit" value="Delete Ship" />
+  </form>
 
 </table>

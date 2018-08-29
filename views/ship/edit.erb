@@ -1,0 +1,35 @@
+<h1>Edit a ship</h1>
+
+<form action="/ship/<%= @ship.id %>" method="post">
+
+  <label for="name">Name:</label>
+  <input type="text" name="name" id="name" value="<%= @ship.name %>" required/>
+<br><br>
+
+  <label for="type">Type:</label>
+  <select id="type" name="type" required>
+    <option value="YT1300">YT1300</option>
+    <option value="YT2400">YT2400</option>
+    <option value="Firespray">Firespray</option>
+    <option value="VCX100">VCX100</option>
+    <option value="Tie Fighter">Tie Fighter</option>
+    <option value="X-Wing">X-wing</option>
+  </select>
+<br><br>
+
+  <label for="size">Size:</label>
+  <input type="number" name="size" id="size" min="1" max="100" value="<%= @ship.size %>" required />
+<br><br>
+
+<label for="owner">Owner:</label>
+<select id="owner" name="owner_id" required>
+  <% for owner in @owners %>
+  <option value="<%= owner.id %>" ><%= owner.name %></option>
+  <% end %>
+</select>
+<br><br>
+
+<input type="submit" value="Update Ship">
+
+
+</form>

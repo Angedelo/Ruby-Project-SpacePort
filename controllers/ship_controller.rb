@@ -26,3 +26,20 @@ post '/ship' do
   @ship.save
   erb(:"ship/create")
 end
+
+post '/ship/:id/delete' do
+  ship = Ship.find(params[:id].to_i)
+  ship.delete
+  redirect to '/ship'
+end
+
+get '/ship/:id/edit' do
+  @ship = Ship.find(params[:id].to_i)
+  @owners = Owner.all
+  erb(:"ship/edit")
+end
+
+post '/ship/:id' do
+  Ship.new( params ).update
+  redirect to '/ship'
+end

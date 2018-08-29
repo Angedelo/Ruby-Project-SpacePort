@@ -1,4 +1,6 @@
+require ('pry-byebug')
 require_relative( '../db/sql_runner' )
+
 
 class Ship
 
@@ -46,7 +48,7 @@ class Ship
   def owner
     sql = "SELECT owners.* FROM owners
     WHERE id = $1"
-    values = [@id]
+    values = [@owner_id]
     results = SqlRunner.run(sql, values)
     return results.map {|owner| Owner.new(owner)}
   end
