@@ -1,0 +1,5 @@
+body {
+  background: black url('/images/spaceport.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
