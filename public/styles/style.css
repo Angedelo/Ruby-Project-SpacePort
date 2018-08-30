@@ -1,6 +1,8 @@
 body {
-  background: url("/images/spaceport.jpg") no-repeat center center fixed;
-  background-size: cover;
+  background: #eb01a5;
+  background-image: url("/images/spaceport.jpg"), linear-gradient(#eb01a5, #d13531);
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 header {
@@ -19,17 +21,19 @@ h1 {
 }
 
 table {
-  width: 100%;
-}
-
-th {
-    height: 50px;
-    text-align: left;
+  width: 50%;
+  border-spacing: 0px;
 }
 
 th, td {
-    padding: 15px;
+    padding: 5px 30px 5px 10px;
+    border-spacing: 0px;
+    font-size: 90%;
+    margin: 0px;
     text-align: left;
+    background-color: inherit;
+    border: 1px solid white;
+
 }
 
 tr {
@@ -49,9 +53,17 @@ li {
   color: azure;
 }
 
+td a {
+  color: azure;
+}
+
+p {
+  color: azure;
+}
+
 li a {
     display: block;
-    color: #000;
+    color: #e6e6e6;
     padding: 8px 16px;
     text-decoration: none;
 }
