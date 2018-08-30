@@ -16,6 +16,8 @@ end
 
 get '/owner/:id' do
   @owner = Owner.find(params[:id].to_i)
+  @ships = @owner.ship
+  # binding.pry
   erb(:"owner/show")
 end
 
