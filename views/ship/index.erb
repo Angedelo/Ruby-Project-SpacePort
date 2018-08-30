@@ -21,11 +21,11 @@
   <% end %>
 
   <% if @capacity == 10 %>
-    <p style="color:red;"><%= "Sorry we are full" %></p>
+    <p class="full"><%= "Sorry we are full" %></p>
     <% elsif @capacity < 10 && @capacity > 5 %>
-    <p style="color:orange;"><%= "We are nearing capacity" %></p>
+    <p class="medium"><%= "We are nearing capacity" %></p>
     <% else %>
-    <p style="color:green;"><%= "Plenty of spaces available" %></p>
+    <p class="empty"><%= "Plenty of spaces available" %></p>
   <% end %>
 
   <form action="/ship/new">

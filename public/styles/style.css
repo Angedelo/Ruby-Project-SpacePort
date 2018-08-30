@@ -72,3 +72,26 @@ li a:hover {
     background-color: #555;
     color: white;
 }
+
+p.full {
+  color: #ff3300;
+  font-size: 120%;
+}
+
+p.medium {
+  color: #ff9900;
+  font-size: 120%;
+}
+
+p.empty {
+  color: #33cc33;
+  font-size: 120%;
+}
+
+table.ship {
+  width: 15%;
+}
+
+label {
+  color: #f2f2f2;
+}
